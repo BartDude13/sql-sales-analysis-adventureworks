@@ -73,7 +73,7 @@ SELECT *
 FROM #panel_Project 
 WHERE OrderQty <= 0 
 
---PreÁos iguais a 0 ou negativos  
+--Pre√ßos iguais a 0 ou negativos  
 SELECT *  
 FROM #panel_Project 
 WHERE UnitPrice <= 0 OR StandardCost < 0 
@@ -84,13 +84,13 @@ FROM #panel_Project
 WHERE UnitProfit < 0 
 ORDER BY UnitProfit ASC 
 
---ConsistÍncia da data 
+--Consist√™ncia da data 
 SELECT  
     MIN(OrderDate) AS MinDate,  
     MAX(OrderDate) AS MaxDate 
 FROM #panel_Project 
 
---Check se algum produto tem categoria mas n„o tem subcategoria 
+--Check se algum produto tem categoria mas n√£o tem subcategoria 
 SELECT * 
 FROM #panel_Project 
 WHERE SubCategoryName IS NULL AND CategoryName IS NOT NULL 
@@ -101,8 +101,8 @@ FROM #panel_Project
 GROUP BY SubCategoryName 
 HAVING COUNT(DISTINCT CategoryName) > 1 
 
---An·lise de Vendas 
---An·lise da Sazonalidade 
+--An√°lise de Vendas 
+--An√°lise da Sazonalidade 
 --Receita e lucro da empresa ao longo dos meses: 
 SELECT 
 Year(OrderDate) AS Year, 
@@ -113,7 +113,7 @@ FROM #panel_Project
 GROUP BY Year(OrderDate), Month(OrderDate) 
 ORDER BY Year, Month 
 
---Õndice mensal de receita e lucro da empresa (100 = mÈdia global): 
+--√çndice mensal de receita e lucro da empresa (100 = m√©dia global): 
 With MonthlyData as  
 (Select Year(OrderDate) as Year, 
  Month(OrderDate) as Month, 
@@ -130,7 +130,7 @@ Select Year,
 From MonthlyData 
 Order by Year, Month 
 
---TendÍncia dos dados da empresa 
+--Tend√™ncia dos dados da empresa 
 --Receita, lucro e margem de lucro da empresa ao longo dos trimestres: 
 WITH Q AS ( 
   SELECT 
@@ -150,7 +150,7 @@ SELECT
 FROM Q 
 ORDER BY Year, Quarter 
 
---EvoluÁ„o mensal de novos clientes 
+--Evolu√ß√£o mensal de novos clientes 
 WITH FirstPurchase AS ( 
   SELECT 
       CustomerID, 
@@ -166,19 +166,19 @@ FROM FirstPurchase
 GROUP BY YEAR(FirstDate), MONTH(FirstDate) 
 ORDER BY FirstYear, FirstMonth 
 
---An·lise de cada regi„o 
---Receita e Lucro de cada PaÌs ao logo dos meses: 
+--An√°lise de cada regi√£o 
+--Receita e Lucro de cada Pa√≠s ao logo dos meses: 
 SELECT 
     YEAR(OrderDate)  AS Year, 
     MONTH(OrderDate) AS Month, 
     Country, 
     SUM(LineTotal) AS Revenue, 
-    SUM(LineTotal ñ StandardCost * OrderQty) AS Profit 
+    SUM(LineTotal ‚Äì StandardCost * OrderQty) AS Profit 
 FROM #panel_Project 
 GROUP BY YEAR(OrderDate), MONTH(OrderDate), Country 
 ORDER BY Country, Year, Month 
 
---Vendas mensais em novas regiıes: 
+--Vendas mensais em novas regi√µes: 
 SELECT 
     YEAR(FirstMonth)  AS Year, 
     MONTH(FirstMonth) AS Month, 
@@ -196,7 +196,7 @@ FROM (
 ) s 
 ORDER BY Year, Month, CountryName, StateName 
 
---N˙mero de estados com vendas por paÌs (Trimestral): 
+--N√∫mero de estados com vendas por pa√≠s (Trimestral): 
 WITH T AS ( 
   SELECT 
       YEAR(OrderDate) AS [Year], 
@@ -231,7 +231,7 @@ WHERE StateProvinceID IS NOT NULL
 GROUP BY StateProvince, Country 
 ORDER BY Profit DESC 
 
---Receita e lucro total de cada paÌs durante o perÌodo 2011-2014: 
+--Receita e lucro total de cada pa√≠s durante o per√≠odo 2011-2014: 
 SELECT 
     Country, 
     SUM(LineTotal) AS Revenue, 
@@ -241,7 +241,7 @@ FROM #panel_Project
 GROUP BY Country 
 ORDER BY Profit desc 
 
---An·lise por categoria 
+--An√°lise por categoria 
 --Categorias mais lucrativas: 
 SELECT 
     CategoryName, 
