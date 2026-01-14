@@ -54,10 +54,8 @@ The project was developed as part of a **Data Analyst training program** and foc
 ---
 
 ## Project Deliverables
-- 📊 [Presentation (PDF)](presentation/Analise_Vendas_AdventureWorks2017_Presentation.pdf)
-- 📑 [SQL Documentation (PDF)](report/AdventureWorks_SQL_Documentation.pdf)
-- 🧠 Main SQL Query: `sql/datapanel.sql`
-- 📂 Additional Queries: `sql/queries.sql`
+- [Presentation (PDF)](presentation/Analise_Vendas_AdventureWorks2017_Presentation.pdf)
+- [SQL Documentation (PDF)](report/AdventureWorks_SQL_Documentation.pdf)
 
 ---
 
