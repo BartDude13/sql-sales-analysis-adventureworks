@@ -54,8 +54,8 @@ The project was developed as part of a **Data Analyst training program** and foc
 ---
 
 ## Project Deliverables
-- [Presentation (PDF)](presentation/Analise_Vendas_AdventureWorks2017_Presentation.pdf)
-- [SQL Documentation (PDF)](report/AdventureWorks_SQL_Documentation.pdf)
+- [Presentation (PDF)](presentation/Análise_Vendas_AdventureWorks2017_PPT.pdf)
+- [SQL Documentation (PDF)](report/Documentacao_SQL.pdf)
 
 ---
 
